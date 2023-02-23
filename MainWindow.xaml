@@ -1,0 +1,22 @@
+﻿<Window x:Class="WpfAppComboBox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppComboBox"
+        xmlns:vw="clr-namespace:WpfAppComboBox.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <vw:MainWindowViewModel/>
+    </Window.DataContext>
+    <Canvas>
+        <ComboBox Canvas.Left="60" Canvas.Top="30" MaxDropDownHeight="500" ItemsSource="{Binding SItems}" Width="100"
+                      SelectedIndex="{Binding IndexSItems}" >
+        </ComboBox>
+        <Button Content="Задать начальные значения ComboBoxУ" Command="{Binding InitComboBox}"
+                Canvas.Left="180" Canvas.Top="30"/>
+        <Button Content="Добавить и тут же удалить значение из ComboBoxА" Command="{Binding TwoQuickChanges}"
+                Canvas.Left="180" Canvas.Top="60"/>
+    </Canvas>
+</Window>
